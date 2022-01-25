@@ -1,6 +1,6 @@
 # Manning TWA - Testing for Microservices
 
-[![Build Status](https://travis-ci.com/andres-sacco/manning-testing-microservices.svg?branch=main)](https://travis-ci.com/andres-sacco/manning-testing-microservices) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This project contains all the code related to the live series of “Testing for Microservices”.
 
