@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.3'
+    }
+    stages {
+
+            stage('Compile') {
+                steps {
+                    dir('api-clusters') {
+                        sh 'mvn clean compile'
+                    }
+                }
+
+            } 
+            stage('Unit Test') {
+                steps {
+                    dir('api-clusters') {
+                        sh 'mvn test'
+                    }
+                }
+            }
+            stage('Package') {
+                steps {
+                    dir('api-clusters') {
+                        sh 'mvn -B -DskipTests package'
+                    }
+                }
+            }
+    }
+}

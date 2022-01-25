@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.twa.flights</groupId>
+	<artifactId>api-flights</artifactId>
+	<version>1.0.0</version>
+	<name>api-flights</name>
+	<description>All the things common in all the projects</description>
+	<packaging>pom</packaging>
+
+	<developers>
+		<developer>
+			<email>sacco.andres@gmail.com</email>
+			<name>Andres Sacco</name>
+			<id>sacco.andres</id>
+		</developer>
+	</developers>
+
+	<modules>
+		<module>api-catalog</module>
+		<module>api-clusters</module>
+		<module>api-itineraries-search</module>
+		<module>api-pricing</module>
+		<module>api-provider-alpha</module>
+		<module>api-provider-beta</module>
+	</modules>
+
+	<properties>
+        <git-changelog-maven-plugin.version>1.78</git-changelog-maven-plugin.version>
+        <git-build-hook-maven-plugin.version>3.0.0</git-build-hook-maven-plugin.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Changelog generator -->
+            <plugin>
+                <groupId>se.bjurr.gitchangelog</groupId>
+                <artifactId>git-changelog-maven-plugin</artifactId>
+                <version>${git-changelog-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>GenerateGitChangelog</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>git-changelog</goal>
+                        </goals>
+                        <configuration>
+                            <file>CHANGELOG.md</file>
+                            <toRef>main</toRef>
+                            <templateFile>changelogTemplate.mustache</templateFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

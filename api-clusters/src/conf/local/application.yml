@@ -1,0 +1,42 @@
+management:
+  health.db.enabled: false
+  endpoints:    
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+
+server:
+  port: 4070
+  servlet:
+    context-path: /api/flights/clusters
+
+jetty:
+  threadPool:
+    maxThreads: 10
+    minThreads: 10
+
+spring:
+  profiles:
+    active: default
+    
+redis:
+   host: localhost
+   port: 6079
+    
+connector:
+   catalog:
+      host: localhost:6070
+      responseTimeout: 2000
+      connectionTimeout: 2000
+      readTimeout: 2000
+   pricing:
+      host: localhost:5070
+      responseTimeout: 10000
+      connectionTimeout: 10000
+      readTimeout: 10000   
+   itineraries-search:
+      host: localhost:7070
+      responseTimeout: 10000
+      connectionTimeout: 10000
+      readTimeout: 10000         
