@@ -39,5 +39,5 @@ spring:
     properties:    
       hibernate:
         ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy                
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         hbm2ddl.auto: validate

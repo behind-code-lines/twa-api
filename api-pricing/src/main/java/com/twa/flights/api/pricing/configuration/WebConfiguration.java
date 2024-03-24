@@ -2,7 +2,6 @@ package com.twa.flights.api.pricing.configuration;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -21,10 +20,9 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         for (HttpMessageConverter<?> converter : converters) {
-            if (converter instanceof MappingJackson2HttpMessageConverter) {
-                ObjectMapper objectIdMapper = ((MappingJackson2HttpMessageConverter) converter).getObjectMapper();
+            if (converter instanceof MappingJackson2HttpMessageConverter messageConverter) {
+                ObjectMapper objectIdMapper = messageConverter.getObjectMapper();
                 objectIdMapper.setPropertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE);
-                objectIdMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
                 objectIdMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             }
         }
